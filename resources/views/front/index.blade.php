@@ -42,7 +42,9 @@
 					</span>
 				</button>
 				<button type="button" class="p-2 bg-white rounded-full">
-					<img src="{{asset('assets/svgs/ic-shopping-bag.svg')}}" class="size-5" alt="">
+					<a href="{{ route('front.carts') }}" class="relative">
+    					<img src="{{ asset('assets/svgs/ic-shopping-bag.svg') }}" class="size-5" alt="Cart">
+					</a>
 				</button>
 			</div>
 		</section>
@@ -57,7 +59,7 @@
 						Home
 					</p>
 				</a>
-				<a href="#" class="flex flex-col items-center justify-center gap-1 px-1 group">
+				<a href="{{ route('front.products.all') }}" class="flex flex-col items-center justify-center gap-1 px-1 group">
 					<img src="{{asset('assets/svgs/ic-location.svg')}}" class="filter-to-grey group-[.is-active]:filter-to-primary"
 						alt="">
 					<p
@@ -65,7 +67,7 @@
 						Stores
 					</p>
 				</a>
-				<a href="#" class="flex flex-col items-center justify-center gap-1 px-1 group">
+				<a href="{{ route('front.carts') }}" class="flex flex-col items-center justify-center gap-1 px-1 group">
 					<img src="{{asset('assets/svgs/ic-note.svg')}}" class="filter-to-grey group-[.is-active]:filter-to-primary" alt="">
 					<p
 						class="border-b-4 border-transparent group-[.is-active]:border-primary pb-3 text-xs text-center font-semibold text-grey group-[.is-active]:text-primary">
@@ -176,80 +178,28 @@
 
 		<!-- Most Purchased -->
 		<section class="wrapper flex flex-col gap-2.5 pb-40">
-			<p class="text-base font-bold">
-				Most Purchased
-			</p>
-			<div class="flex flex-col gap-4">
-				<!-- Softovac Rami -->
+			@foreach($mostPurchased as $product)
 				<div class="py-3.5 pl-4 pr-[22px] bg-white rounded-2xl flex gap-1 items-center relative">
-					<img src="{{asset('assets/images/product-2.webp')}}" class="w-full max-w-[70px] max-h-[70px] object-contain"
-						alt="">
+					<img src="{{Storage::url($product->photo)}}" class="w-full max-w-[70px] max-h-[70px] object-contain" alt="">
 					<div class="flex flex-wrap items-center justify-between w-full gap-1">
 						<div class="flex flex-col gap-1">
-							<a href="details.html"
+							<a href="{{ route('front.product.details', $product->slug) }}"
 								class="text-base font-semibold stretched-link whitespace-nowrap w-[150px] truncate">
-								Softovac Rami
+								{{ $product->name }}
 							</a>
 							<p class="text-sm text-grey">
-								Rp 290.000
+								Rp {{ number_format($product->price, 0, ',', '.') }}
 							</p>
 						</div>
 						<div class="flex">
-							<img src="{{asset('assets/svgs/star.svg')}}" class="size-[18px]" alt="">
-							<img src="{{asset('assets/svgs/star.svg')}}" class="size-[18px]" alt="">
-							<img src="{{asset('assets/svgs/star.svg')}}" class="size-[18px]" alt="">
-							<img src="{{asset('assets/svgs/star.svg')}}" class="size-[18px]" alt="">
-							<img src="{{asset('assets/svgs/star.svg')}}" class="size-[18px]" alt="">
+							@for($i = 0; $i < 5; $i++)
+								<img src="{{asset('assets/svgs/star.svg')}}" class="size-[18px]" alt="">
+							@endfor
 						</div>
 					</div>
 				</div>
-				<!-- Enoki Pro -->
-				<div class="py-3.5 pl-4 pr-[22px] bg-white rounded-2xl flex gap-1 items-center relative">
-					<img src="{{asset('assets/images/product-1.webp')}}" class="w-full max-w-[70px] max-h-[70px] object-contain"
-						alt="">
-					<div class="flex flex-wrap items-center justify-between w-full gap-1">
-						<div class="flex flex-col gap-1">
-							<a href="details.html"
-								class="text-base font-semibold stretched-link whitespace-nowrap w-[150px] truncate">
-								Enoki Softovac
-							</a>
-							<p class="text-sm text-grey">
-								Rp 34.500.000
-							</p>
-						</div>
-						<div class="flex">
-							<img src="{{asset('assets/svgs/star.svg')}}" class="size-[18px]" alt="">
-							<img src="{{asset('assets/svgs/star.svg')}}" class="size-[18px]" alt="">
-							<img src="{{asset('assets/svgs/star.svg')}}" class="size-[18px]" alt="">
-							<img src="{{asset('assets/svgs/star.svg')}}" class="size-[18px]" alt="">
-							<img src="{{asset('assets/svgs/star.svg')}}" class="size-[18px]" alt="">
-						</div>
-					</div>
-				</div>
-				<!-- Veetax Bora -->
-				<div class="py-3.5 pl-4 pr-[22px] bg-white rounded-2xl flex gap-1 items-center relative">
-					<img src="{{asset('assets/images/product-4.webp')}}" class="w-full max-w-[70px] max-h-[70px] object-contain"
-						alt="">
-					<div class="flex flex-wrap items-center justify-between w-full gap-1">
-						<div class="flex flex-col gap-1">
-							<a href="details.html"
-								class="text-base font-semibold stretched-link whitespace-nowrap w-[150px] truncate">
-								Veetax Bora
-							</a>
-							<p class="text-sm text-grey">
-								Rp 899.000
-							</p>
-						</div>
-						<div class="flex">
-							<img src="{{asset('assets/svgs/star.svg')}}" class="size-[18px]" alt="">
-							<img src="{{asset('assets/svgs/star.svg')}}" class="size-[18px]" alt="">
-							<img src="{{asset('assets/svgs/star.svg')}}" class="size-[18px]" alt="">
-							<img src="{{asset('assets/svgs/star.svg')}}" class="size-[18px]" alt="">
-							<img src="{{asset('assets/svgs/star.svg')}}" class="size-[18px]" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
+				@endforeach
+
 		</section>
 
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

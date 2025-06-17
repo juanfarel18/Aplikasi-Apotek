@@ -129,43 +129,49 @@
           Payment Method
         </p>
       </div>
-      <div class="grid items-center grid-cols-2 gap-4">
-        <label
-          class="relative rounded-2xl bg-white flex gap-2.5 px-3.5 py-3 items-center justify-start has-[:checked]:ring-2 has-[:checked]:ring-primary transition-all">
-          <input type="radio" name="payment_method" id="manualMethod" class="absolute opacity-0">
-          <img src="{{asset('assets/svgs/ic-receipt-text-filled.svg')}}" alt="">
-          <p class="text-base font-semibold">
-            Manual
-          </p>
-        </label>
-        <label
-          class="relative rounded-2xl bg-white flex gap-2.5 px-3.5 py-3 items-center justify-start has-[:checked]:ring-2 has-[:checked]:ring-primary transition-all">
-          <input type="radio" name="payment_method" id="creditMethod" class="absolute opacity-0">
-          <img src="{{asset('assets/svgs/ic-card-filled.svg')}}" alt="">
-          <p class="text-base font-semibold">
-            Credits
-          </p>
+     <div class="grid items-center grid-cols-2 gap-4">
+          <label class="relative rounded-2xl bg-white flex gap-2.5 px-3.5 py-3 items-center justify-start has-[:checked]:ring-2 has-[:checked]:ring-primary transition-all cursor-pointer">
+            <input type="radio" name="payment_method" id="manualMethod" class="absolute opacity-0">
+            <img src="{{ asset('assets/svgs/ic-receipt-text-filled.svg') }}" alt="">
+            <p class="text-base font-semibold">Manual</p>
           </label>
-      </div>
-      <div class="p-4 mt-0.5 bg-white rounded-3xl hidden" id="manualPaymentDetail">
-        <div class="flex flex-col gap-5">
-          <p class="text-base font-bold">
-            Send Payment to
-          </p>
-          <div class="inline-flex items-center gap-2.5">
-            <img src="{{asset('assets/svgs/ic-bank.svg')}}" class="size-5" alt="">
-            <p class="text-base font-semibold">
-              Send Payment to
-            </p>
-          </div>
-          <div class="inline-flex items-center gap-2.5">
-            <img src="{{asset('assets/svgs/ic-security-card.svg')}}" class="size-5" alt="">
-            <p class="text-base font-semibold">
-              083902093092
-            </p>
+
+          <label class="relative rounded-2xl bg-white flex gap-2.5 px-3.5 py-3 items-center justify-start has-[:checked]:ring-2 has-[:checked]:ring-primary transition-all cursor-pointer">
+            <input type="radio" name="payment_method" id="qrisMethod" class="absolute opacity-0">
+            <img src="{{ asset('assets/svgs/ic-card-filled.svg') }}" alt="">
+            <p class="text-base font-semibold">QRIS</p>
+          </label>
+        </div>
+
+        <!-- Manual Payment Detail -->
+        <div class="p-4 mt-0.5 bg-white rounded-3xl" id="manualPaymentDetail" style="display: none;" >
+          <div class="flex flex-col gap-5">
+            <p class="text-base font-bold">Send Payment to</p>
+            <div class="inline-flex items-center gap-2.5">
+              <img src="{{ asset('assets/svgs/ic-bank.svg') }}" class="size-5" alt="">
+              <p class="text-base font-semibold">Juan Farrel N A</p>
+            </div>
+            <div class="inline-flex items-center gap-2.5">
+              <img src="{{ asset('assets/svgs/ic-security-card.svg') }}" class="size-5" alt="">
+              <p class="text-base font-semibold">083902093092</p>
+            </div>
           </div>
         </div>
-      </div>
+
+        <!-- QRIS Payment Detail -->
+        <div class="p-4 mt-0.5 bg-white rounded-3xl" id="qrisMethodDetail" style="display: none;">
+          <div class="flex flex-col gap-5">
+            <p class="text-base font-bold">Payment QR Code</p>
+            <div class="inline flex flex-col items-center gap-2.5">
+              <img src="{{ asset('assets/svgs/ic-qris.svg') }}" class="w-40 h-40 object-contain" alt="">
+              <a href="/public/assets/svgs/ic-qris.svg" download="qris-code.svg"
+                class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white rounded-full"
+                style="background-color: #419fec;">
+                Unduh QRIS
+              </a>
+            </div>
+          </div>
+        </div>
     </section>
 
     <!-- Delivery to -->
@@ -186,7 +192,7 @@
           <div class="flex flex-col gap-2.5">
             <label for="address" class="text-base font-semibold">Address</label>
             <input type="text" name="address" id="address__"
-              class="form-input bg-[url('{{asset('assets/svgs/ic-location.svg')}}')" value="Tedjamudita 3">
+              class="form-input ('{{asset('assets/svgs/ic-location.svg')}}" value="Tedjamudita 3">
           </div>
           <!-- City -->
           <div class="flex flex-col gap-2.5">
@@ -223,6 +229,7 @@
           </div>
         </div>
         </div>
+        </form>
       
     </section>
 
@@ -237,9 +244,10 @@
             Rp 3.290.000
           </p>
         </div>
-        <button type="submit" class="inline-flex items-center justify-center px-5 py-3 text-base font-bold text-white rounded-full w-max bg-primary whitespace-nowrap">
-          Confirm
-        </button>
+        <form action="{{ route('transactions.success-checkout') }}" method="GET">
+          <button type="submit" class="inline-flex items-center justify-center px-5 py-3 text-base font-bold text-white rounded-full w-max bg-primary whitespace-nowrap">
+            Confirm
+          </button>
         </form>
       </section>
     </div>

@@ -1,4 +1,4 @@
-//menampilkan data transaksi sebagai pembeli atau pemilik apotek
+
 
 <x-app-layout>
     <x-slot name="header">
@@ -9,9 +9,10 @@
         </div>
     </x-slot>
 
-    <div class="py-12">
-        < class="max-w-5xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden p-10 shadow-sm sm:rounded-lg">
+   <div class="py-12">
+        <!-- Container pusat -->
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden p-8 shadow-sm sm:rounded-lg space-y-6">
                 
                  @forelse($product_transactions as $transaction)
                 <div class="item-card flex flex-row justify-between items-center">

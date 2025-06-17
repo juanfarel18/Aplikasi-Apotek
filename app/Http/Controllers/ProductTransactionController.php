@@ -8,6 +8,7 @@ use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use App\Notifications\CheckoutSuccessNotification;
 
 class ProductTransactionController extends Controller
 {
@@ -110,6 +111,7 @@ class ProductTransactionController extends Controller
             ]);
             throw $error;
         }
+        
 
     }
 
@@ -152,4 +154,10 @@ class ProductTransactionController extends Controller
     {
         //
     }
+    public function successCheckout()
+        {
+            session()->flash('success', 'Checkout berhasil! Terima kasih telah memesan.');
+
+            return view('front.success-checkout');
+        }
 }

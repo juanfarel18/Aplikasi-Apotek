@@ -13,10 +13,13 @@ class FrontController extends Controller
     public function index(){
         $products = Product::with('category')->orderBy('id', 'DESC')->take(6)->get();
         $categories = Category::all();
+        $mostPurchased = Product::take(3)->get();
         return view('front.index', [
             'products' => $products,
             'categories' => $categories,
+            'mostPurchased' => $mostPurchased,
         ]);
+        
     }
     public function details(Product $product){
         return view('front.details',[
@@ -42,4 +45,10 @@ class FrontController extends Controller
             'keyword' => $keyword,
         ]);
     }
+    public function allProducts() {
+    $products = Product::with('category')->latest()->get();
+    return view('front.all-products', compact('products'));
+} //percobaan
+
+    
 }
