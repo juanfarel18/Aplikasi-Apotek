@@ -23,7 +23,7 @@
           our staff will check them now
         </p>
       </div>
-      <a href="product_transactions" class="inline-flex w-max text-white font-bold text-base bg-primary rounded-full px-[30px] py-3 justify-center items-center whitespace-nowrap">
+      <a href="{{ route('product_transactions.index') }}" class="inline-flex w-max text-white font-bold text-base bg-primary rounded-full px-[30px] py-3 justify-center items-center whitespace-nowrap">
         My Orders
       </a>
     </div>

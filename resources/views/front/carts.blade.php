@@ -37,8 +37,8 @@
 
         @forelse($my_carts as $cart)
         <div class="py-3.5 pl-4 pr-[22px] bg-white rounded-2xl flex gap-1 items-center relative">
-          <img src="{{Storage::url($cart->product->photo)}}" class="w-full max-w-[70px] max-h-[70px] object-contain"
-            alt="">
+          <img src="{{Storage::url($cart->product->photo)}}" 
+              class="w-full max-w-[70px] max-h-[70px] object-contain"alt="">
           <div class="flex flex-wrap items-center justify-between w-full gap-1">
             <div class="flex flex-col gap-1">
               <h3
@@ -149,11 +149,11 @@
             <p class="text-base font-bold">Send Payment to</p>
             <div class="inline-flex items-center gap-2.5">
               <img src="{{ asset('assets/svgs/ic-bank.svg') }}" class="size-5" alt="">
-              <p class="text-base font-semibold">Juan Farrel N A</p>
+              <p class="text-base font-semibold">Atm Bersama</p>
             </div>
             <div class="inline-flex items-center gap-2.5">
               <img src="{{ asset('assets/svgs/ic-security-card.svg') }}" class="size-5" alt="">
-              <p class="text-base font-semibold">083902093092</p>
+              <p class="text-base font-semibold">123456789</p>
             </div>
           </div>
         </div>
@@ -185,72 +185,71 @@
         </button>
       </div>
       
-      <form enctype="multipart/form-data" action="{{ route('product_transactions.store') }}" method="POST" class="p-6 bg-white rounded-3xl" id="deliveryForm">
+      <form enctype="multipart/form-data" action="{{ route('product_transactions.store') }}" method="POST" 
+            class="p-6 bg-white rounded-3xl pb-48 relative" id="deliveryForm">
         @csrf
         <div class="flex flex-col gap-5">
           <!-- Address -->
           <div class="flex flex-col gap-2.5">
             <label for="address" class="text-base font-semibold">Address</label>
-            <input type="text" name="address" id="address__"
-              class="form-input ('{{asset('assets/svgs/ic-location.svg')}}" value="Tedjamudita 3">
+            <input style="background-image: url('{{ asset('assets/svgs/ic-location.svg') }}')"type="text" name="address" id="address__"
+              class="form-input p1-10 " value="">
           </div>
+
           <!-- City -->
           <div class="flex flex-col gap-2.5">
             <label for="city" class="text-base font-semibold">City</label>
-            <input type="text" name="city" id="city__" class="form-input bg-[url('{{asset('assets/svgs/ic-map.svg')}}')]"
-              value="Bolavia">
+            <input style="background-image: url('{{ asset('assets/svgs/ic-map.svg') }}')" type="text" name="city" id="city__" 
+              class="form-input p1-10" value="">
           </div>
+
           <!-- Post Code -->
           <div class="flex flex-col gap-2.5">
             <label for="postcode" class="text-base font-semibold">Post Code</label>
-            <input type="number" name="post_code" id="postcode__"
-              class="form-input bg-[url('{{asset('assets/svgs/ic-house.svg')}}')" value="22081882">
+            <input style="background-image: url('{{ asset('assets/svgs/ic-house.svg') }}')" type="number" name="post_code" id="postcode__"
+              class="form-input p1-10" value="">
           </div>
+
           <!-- Phone Number -->
           <div class="flex flex-col gap-2.5">
             <label for="phonenumber" class="text-base font-semibold">Phone Number</label>
-            <input type="number" name="phone_number" id="phonenumber__"
-              class="form-input bg-[url('{{asset('assets/svgs/ic-phone.svg')}}')" value="602192301923">
+            <input style="background-image: url('{{ asset('assets/svgs/ic-phone.svg') }}')" type="number" name="phone_number" id="phonenumber__"
+              class="form-input p1-10" value="">
           </div>
+
           <!-- Add. Notes -->
           <div class="flex flex-col gap-2.5">
             <label for="notes" class="text-base font-semibold">Add. Notes</label>
             <span class="relative">
               <img src="{{asset('assets/svgs/ic-edit.svg')}}" class="absolute size-5 top-4 left-4" alt="">
               <textarea name="notes" id="notes__"
-                class="form-input !rounded-2xl w-full min-h-[150px]">nearby with local shops that close with the big river next to aftermarket place.</textarea>
+                class="form-input !rounded-2xl w-full min-h-[150px] pl-10 pr-4 pt-4"></textarea>
             </span>
           </div>
+
           <!-- Proof of Payment -->
           <div class="flex flex-col gap-2.5">
-            <label for="proof_of_payment" class="text-base font-semibold">Proof of Payment</label>
-            <input type="file" name="proof" id="proof_of_payment__"
+             <label for="proof_of_payment" class="text-base font-semibold">Proof of Payment</label>
+              <input type="file" name="proof" id="proof_of_payment__"
               class="form-input bg-[url('{{asset('assets/svgs/ic-folder-add.svg')}}')">
-          </div>
         </div>
-        </div>
-        </form>
-      
-    </section>
 
-    <!-- Floating grand total -->
-    <div class="fixed z-50 bottom-[30px] bg-black rounded-3xl p-5 left-1/2 -translate-x-1/2 w-[calc(100dvw-32px)] max-w-[425px]">
-      <section class="flex items-center justify-between gap-5">
-        <div>
-          <p class="text-sm text-grey mb-0.5">
-            Grand Total
-          </p>
-          <p class="text-lg min-[350px]:text-2xl font-bold text-white" id="checkout-grand-total-price">
-            Rp 3.290.000
-          </p>
+        <!-- Floating Grand Total & Confirm Button -->
+        <div class="fixed z-50 bottom-[30px] bg-black rounded-3xl p-5 left-1/2 -translate-x-1/2 w-[calc(100dvw-32px)] max-w-[425px]">
+          <section class="flex items-center justify-between gap-5">
+            <div>
+              <p class="text-sm text-grey mb-0.5">Grand Total</p>
+              <p class="text-lg min-[350px]:text-2xl font-bold text-white" id="checkout-grand-total-price">
+              </p>
+            </div>
+            <button type="submit"
+              class="inline-flex items-center justify-center px-5 py-3 text-base font-bold text-white rounded-full w-max bg-primary whitespace-nowrap">
+              Confirm
+            </button>
+          </section>
         </div>
-        <form action="{{ route('transactions.success-checkout') }}" method="GET">
-          <button type="submit" class="inline-flex items-center justify-center px-5 py-3 text-base font-bold text-white rounded-full w-max bg-primary whitespace-nowrap">
-            Confirm
-          </button>
-        </form>
-      </section>
-    </div>
+      </form>
+
 
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"

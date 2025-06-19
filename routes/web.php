@@ -15,7 +15,10 @@ Route::get('/details/{product:slug}', [FrontController::class, 'details'])->name
 Route::get('/category/{category}', [FrontController::class, 'category'])->name('front.product.category');
 Route::get('/products', [FrontController::class, 'allProducts'])->name('front.products.all');//percobaan
 Route::get('/cart', [CartController::class, 'index'])->name('front.carts');
-Route::get('/success-checkout', [ProductTransactionController::class, 'successCheckout'])->name('transactions.success-checkout');
+Route::post('/checkout', [ProductTransactionController::class, 'store'])->name('product_transactions.store');
+Route::get('/checkout/success', [ProductTransactionController::class, 'successCheckout'])->name('transactions.success-checkout');
+
+//Route::get('/success-checkout', [ProductTransactionController::class, 'successCheckout'])->name('transactions.success-checkout');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
