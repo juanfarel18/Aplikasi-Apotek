@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="{{asset('assets/svgs/logo-mark.svg')}}" type="image/x-icon">
 		<link rel="stylesheet" href="{{asset('css/main.css')}}">
 		<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-        <script src="https://cdn.tailwindcss.com"></script>
+        <!--<script src="https://cdn.tailwindcss.com"></script>-->
   </head>
 
   <body>
@@ -286,8 +286,6 @@
             document.getElementById('checkout-grand-total-price').textContent = 'Rp ' +grandTotalPrice.toLocaleString('id',
             {minimumFractionDigits: 0, maximumFractionDigits: 2});
         }
-        
-
         document.addEventListener('DOMContentLoaded', function(){
             calculatePrice();
         });

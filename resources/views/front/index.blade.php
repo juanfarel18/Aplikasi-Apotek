@@ -8,7 +8,7 @@
 		<link rel="shortcut icon" href="{{asset('assets/svgs/logo-mark.svg')}}" type="image/x-icon">
 		<link rel="stylesheet" href="{{asset('css/main.css')}}">
 		<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-        <script src="https://cdn.tailwindcss.com"></script>
+        <!--<script src="https://cdn.tailwindcss.com"></script>-->
 	</head>
 
 	<body>
@@ -100,7 +100,8 @@
 
 		<!-- Your last order -->
 		<section class="wrapper">
-			<div style="background-image: url('{{ asset('assets/svgs/pipeline.svg') }}')"
+			<div style="background-image: url
+			"
 				class="flex justify-between gap-5 items-center bg-lilac py-3.5 px-4 rounded-2xl relative bg-left bg-no-repeat bg-cover">
 				<p class="text-base font-bold">
 					Your last order has <br>
