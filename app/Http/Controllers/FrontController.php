@@ -48,11 +48,5 @@ class FrontController extends Controller
     public function allProducts() {
     $products = Product::with('category')->latest()->get();
     return view('front.all-products', compact('products'));
-<<<<<<< HEAD
-} 
-=======
-} //percobaan
->>>>>>> f65dc3e670c749ca9be81e4e3a0a66277f53b84a
-
-    
+    }
 }

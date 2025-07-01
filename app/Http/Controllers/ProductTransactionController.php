@@ -102,7 +102,8 @@ class ProductTransactionController extends Controller
 
             DB::commit();
 
-            return redirect()->route('success-checkout');
+           return redirect()->route('transactions.success-checkout');
+
 
         }
         catch(\Exception $e){

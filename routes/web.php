@@ -15,17 +15,8 @@ Route::get('/details/{product:slug}', [FrontController::class, 'details'])->name
 Route::get('/category/{category}', [FrontController::class, 'category'])->name('front.product.category');
 Route::get('/products', [FrontController::class, 'allProducts'])->name('front.products.all');//percobaan
 Route::get('/cart', [CartController::class, 'index'])->name('front.carts');
-<<<<<<< HEAD
-Route::post('/product_transactions', [ProductTransactionController::class, 'store'])->name('product_transactions.store');
-Route::get('/success-checkout', [ProductTransactionController::class, 'success'])->name('success-checkout');
-Route::get('/transaction/success', [ProductTransactionController::class, 'success']);
-
-=======
 Route::post('/checkout', [ProductTransactionController::class, 'store'])->name('product_transactions.store');
-Route::get('/checkout/success', [ProductTransactionController::class, 'successCheckout'])->name('transactions.success-checkout');
->>>>>>> f65dc3e670c749ca9be81e4e3a0a66277f53b84a
-
-//Route::get('/success-checkout', [ProductTransactionController::class, 'successCheckout'])->name('transactions.success-checkout');
+Route::get('/checkout/success', [ProductTransactionController::class, 'success'])->name('transactions.success-checkout');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -34,11 +25,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    
-
     Route::resource('carts', CartController::class)->middleware('role:buyer');
     Route::post('/cart/add/{productId}', [CartController::class, 'store'])->middleware('role:buyer')->name('carts.store');
-
     Route::resource('product_transactions', ProductTransactionController::class)->middleware('role:owner|buyer');
     Route::prefix('admin')->name('admin.')->group(function(){
         Route::resource('products', ProductController::class)->middleware('role:owner');

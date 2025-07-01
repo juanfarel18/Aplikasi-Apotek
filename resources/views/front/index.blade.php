@@ -8,11 +8,8 @@
 		<link rel="shortcut icon" href="{{asset('assets/svgs/logo-mark.svg')}}" type="image/x-icon">
 		<link rel="stylesheet" href="{{asset('css/main.css')}}">
 		<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-<<<<<<< HEAD
         <script src="https://cdn.tailwindcss.com"></script>
-=======
-        <!--<script src="https://cdn.tailwindcss.com"></script>-->
->>>>>>> f65dc3e670c749ca9be81e4e3a0a66277f53b84a
+
 	</head>
 
 	<body>
