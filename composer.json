@@ -8,7 +8,11 @@
         "php": "^8.2",
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9",
+<<<<<<< HEAD
         "spatie/laravel-permission": "*"
+=======
+        "spatie/laravel-permission": "^6.19"
+>>>>>>> f65dc3e670c749ca9be81e4e3a0a66277f53b84a
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

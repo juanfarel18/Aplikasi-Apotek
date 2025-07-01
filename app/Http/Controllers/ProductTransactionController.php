@@ -161,6 +161,4 @@ class ProductTransactionController extends Controller
 
             return view('front.success-checkout');
         }
-
-
 }

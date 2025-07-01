@@ -60,7 +60,11 @@ class CartController extends Controller
 
             DB::commit();
 
+<<<<<<< HEAD
             return redirect()->route('front.success_checkout')->with('success', 'Checkout berhasil!');
+=======
+            return redirect()->route('carts.index');
+>>>>>>> f65dc3e670c749ca9be81e4e3a0a66277f53b84a
 
         }catch(\Exception $e){
             DB::rollBack();

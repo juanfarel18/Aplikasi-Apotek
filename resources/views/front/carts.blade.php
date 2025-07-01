@@ -8,13 +8,20 @@
     <link rel="shortcut icon" href="{{asset('assets/svgs/logo-mark.svg')}}" type="image/x-icon">
 		<link rel="stylesheet" href="{{asset('css/main.css')}}">
 		<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<<<<<<< HEAD
        <script src="https://cdn.tailwindcss.com"></script>
+=======
+        <!--<script src="https://cdn.tailwindcss.com"></script>-->
+>>>>>>> f65dc3e670c749ca9be81e4e3a0a66277f53b84a
   </head>
 
   <body>
     <!-- Topbar -->
     <section class="relative flex items-center justify-between w-full gap-5 wrapper">
+<<<<<<< HEAD
       
+=======
+>>>>>>> f65dc3e670c749ca9be81e4e3a0a66277f53b84a
       <a href="{{ route('front.index') }}" class="p-2 bg-white rounded-full">
         <img src="{{asset('assets/svgs/ic-arrow-left.svg')}}" class="size-5" alt="">
       </a>

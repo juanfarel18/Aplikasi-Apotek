@@ -54,10 +54,13 @@
                     </x-slot>
 
                     <x-slot name="content">
+<<<<<<< HEAD
                         <x-dropdown-link :href="route('front.index')">
                             {{ __('Store') }}
                         </x-dropdown-link>
 
+=======
+>>>>>>> f65dc3e670c749ca9be81e4e3a0a66277f53b84a
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
